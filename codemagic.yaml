@@ -1,0 +1,18 @@
+version: 1.0.0
+workflows:
+  ios:
+    name: Сборка и тестирование iOS приложения
+    description: Сборка и тестирование React Native iOS приложения
+    platform: ios
+    android:
+      gradle:
+        cache: true
+    triggers:
+      - push:
+          branches:
+            - main
+          paths:
+            - '**/*'
+    jobs:
+      - job:
+          name: Сборка
