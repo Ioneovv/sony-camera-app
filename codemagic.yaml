@@ -1,15 +1,9 @@
-version: 1.0.0
 workflows:
   ios:
-    name: Сборка и тестирование iOS приложения
-    platform: ios
-    triggers:
-      - push:
-          branches:
-            - main
-    jobs:
-      - job:
-          name: Сборка
-          workflows:
-            - workflow:
-                name: сборка
+    name: Сборка iOS приложения
+    environment:
+      flutter: stable
+    scripts:
+      - flutter clean
+      - flutter pub get
+      - flutter build ios --release
