@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" 
+      navigatingTo="navigatingTo" 
+      unloaded="onUnloaded"
+      class="bg-black">
+    <ActionBar class="bg-black text-white">
+        <GridLayout columns="*, auto, auto">
+            <Label col="0" text="3353K" class="text-2xl" />
+            <Label col="1" text="ZV-E10" class="text-sm text-gray-400 mr-2" />
+            <Label col="2" text="{{ wbIcon }}" class="text-xl text-gray-400" />
+        </GridLayout>
+    </ActionBar>
+    
+    <GridLayout rows="*, auto, auto" class="p-0 m-0">
+        <!-- Camera Preview -->
+        <CameraPlus row="0" 
+                    id="camera" 
+                    class="camera-preview" 
+                    loaded="{{ onCameraLoaded }}"
+                    enableVideo="false" 
+                    showCaptureIcon="false" />
+        
+        <!-- Measurement Grid -->
+        <GridLayout row="1" columns="*, *, *" class="bg-[#1c1c1e] p-4">
+            <StackLayout col="0" class="text-center">
+                <Label text="ВЫДЕРЖКА" class="text-gray-400 text-sm mb-2" />
+                <Label text="{{ shutterSpeed }}" class="text-white text-2xl font-medium" />
+                <Label text="1/45" class="text-gray-400 text-xl" />
+                <Label text="1/60" class="text-gray-400 text-xl" />
+            </StackLayout>
+            
+            <StackLayout col="1" class="text-center">
+                <Label text="ДИАФРАГМА" class="text-gray-400 text-sm mb-2" />
+                <Label text="{{ aperture }}" class="text-white text-2xl font-medium" />
+                <Label text="1.6" class="text-gray-400 text-xl" />
+                <Label text="1.8" class="text-gray-400 text-xl" />
+            </StackLayout>
+            
+            <StackLayout col="2" class="text-center">
+                <Label text="ISO" class="text-gray-400 text-sm mb-2" />
+                <Label text="{{ iso }}" class="text-white text-2xl font-medium" />
+                <Label text="500" class="text-gray-400 text-xl" />
+                <Label text="640" class="text-gray-400 text-xl" />
+            </StackLayout>
+        </GridLayout>
+
+        <!-- Bottom Controls -->
+        <GridLayout row="2" columns="*, *, *, *" class="bg-[#1c1c1e] p-4">
+            <Label col="0" text="{{ isPaused ? '▶' : '❚❚' }}" tap="{{ onPause }}" class="text-white text-center text-2xl" />
+            <Label col="1" text="●" tap="{{ onCapture }}" class="text-white text-center text-2xl" />
+            <Label col="2" text="☰" tap="{{ onMenu }}" class="text-white text-center text-2xl" />
+            <Label col="3" text="○" tap="{{ onSettings }}" class="text-white text-center text-2xl" />
+        </GridLayout>
+    </GridLayout>
+</Page>
