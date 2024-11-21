@@ -4,7 +4,8 @@ workflows:
     scripts:
       - name: Install dependencies
         script: |
+          npm install -g nativescript  # Установка NativeScript CLI
           npm install
       - name: Build iOS app
         script: |
-          tns build ios --release
+          tns build ios --release   # Команда для сборки iOS-приложения
